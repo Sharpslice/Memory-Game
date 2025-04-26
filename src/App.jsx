@@ -9,6 +9,7 @@ function App() {
     async function fetchData(){
       let data = await getPokemon('eevee');
       setPokemon(data)
+      console.log(data)
     }
     fetchData();
   
