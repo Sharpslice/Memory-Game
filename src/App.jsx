@@ -1,32 +1,28 @@
 
 import './App.css'
-import { getPokemon, getListOfPokemon} from './Api'
+import { getListOfPokemon} from './Api'
 import { Gamecontroller } from './gamecontroller';
 import { useEffect,useState } from 'react'
+
 function App() {
-  // const [pokemon,setPokemon] = useState(null);
-
-  // useEffect(()=>{
-  //   async function fetchData(){
-  //     let data = await getPokemon('eevee');
-  //     let test = await getListOfPokemon(['eevee','pikachu','typhlosion']);
-  //     setPokemon(data)
-  //     console.log(data)
-  //     console.log(test)
-  //   }
-  //   fetchData();
-  
-  // },[])
-
-
-  const [cardSet, setCardSet] = useState(null);
+  const [pokemonSet, setPokemonSet] = useState(null);
   const pokemons = ['eevee','pikachu','typhlosion'];
 
   useEffect(()=>{
-    const Game = new Gamecontroller(pokemons);
-
-
+    async function fetchData(){
+      let pokemonList = await getListOfPokemon(pokemons);
+      setPokemonSet(pokemonList);
+    }
+    fetchData();
+  
   },[])
+
+  useEffect(()=>{
+    if(pokemonSet){
+      const Game = new Gamecontroller(pokemonSet);
+    }
+    
+  })
 
 
 
