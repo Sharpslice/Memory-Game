@@ -1,4 +1,4 @@
-class Cards {
+export class Cards {
     constructor(pokemon){
         this.id = pokemon.id;
         this.url = pokemon.sprites.front_default;
