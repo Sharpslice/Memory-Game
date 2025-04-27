@@ -2,12 +2,12 @@
 import './App.css'
 import { getListOfPokemon} from './Api'
 import { Gamecontroller } from './gamecontroller';
-import { useEffect,useState,useRef } from 'react'
+import { useEffect,useState } from 'react'
 import Layout from './layout';
 function App() {
   const [pokemonSet, setPokemonSet] = useState(null);
-  const pokemons = ['eevee','pikachu','typhlosion'];
-  const game = useRef(null)
+  const pokemons = ['eevee','pikachu','typhlosion',"flygon","tandemaus","samurott","blaziken"];
+  const [game,setGame ]= useState(null)
   useEffect(()=>{
     async function fetchData(){
       let pokemonList = await getListOfPokemon(pokemons);
@@ -19,16 +19,22 @@ function App() {
 
   useEffect(()=>{
     if(pokemonSet){
-      game.current = new Gamecontroller(pokemonSet);
-      
+      const game = new Gamecontroller(pokemonSet);
+      setGame(game);
+      console.log(game.getCardSet());
     }
     
   },[pokemonSet])
 
   return (
-    <>
-    {/* {pokemon ? <p>{pokemon.name}</p> : <p>loading</p>} */}
-    <Layout cardSet={game.current.getCardset}/>
+    <> 
+    { game && <Layout cardSet={game.getCardSet()}></Layout>
+
+
+    }
+      
+    
+    
     </>
   )
 }

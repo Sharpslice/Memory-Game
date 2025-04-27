@@ -5,9 +5,9 @@ export class Gamecontroller {
         this.pickedCards = [];
     }
     getCardSet(){
-        return this.cardSet
+        return this.cardSet.getCardSet();
     }
-
+    
 
 
 }

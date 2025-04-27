@@ -1,7 +1,23 @@
-export default function Layout({cardSet}){
+export default function Layout({cardSet = null}){
+
     return(
         <div>
-            hello{cardSet}
+            {
+               
+                cardSet.map((card)=>(
+                <div key ={card.id}>
+                    {
+                        card.name
+                    }
+
+
+                </div>
+                ))
+                
+            }
         </div>
+           
     )
 }
+
+
