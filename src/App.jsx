@@ -1,39 +1,34 @@
 
 import './App.css'
-import { getPokemon, getListOfPokemon} from './Api'
+import { getListOfPokemon} from './Api'
 import { Gamecontroller } from './gamecontroller';
-import { useEffect,useState } from 'react'
+import { useEffect,useState,useRef } from 'react'
+import Layout from './layout';
 function App() {
-  // const [pokemon,setPokemon] = useState(null);
-
-  // useEffect(()=>{
-  //   async function fetchData(){
-  //     let data = await getPokemon('eevee');
-  //     let test = await getListOfPokemon(['eevee','pikachu','typhlosion']);
-  //     setPokemon(data)
-  //     console.log(data)
-  //     console.log(test)
-  //   }
-  //   fetchData();
-  
-  // },[])
-
-
-  const [cardSet, setCardSet] = useState(null);
+  const [pokemonSet, setPokemonSet] = useState(null);
   const pokemons = ['eevee','pikachu','typhlosion'];
-
+  const game = useRef(null)
   useEffect(()=>{
-    const Game = new Gamecontroller(pokemons);
-
-
+    async function fetchData(){
+      let pokemonList = await getListOfPokemon(pokemons);
+      setPokemonSet(pokemonList);
+    }
+    fetchData();
+  
   },[])
 
-
+  useEffect(()=>{
+    if(pokemonSet){
+      game.current = new Gamecontroller(pokemonSet);
+      
+    }
+    
+  },[pokemonSet])
 
   return (
     <>
     {/* {pokemon ? <p>{pokemon.name}</p> : <p>loading</p>} */}
-    
+    <Layout cardSet={game.current.getCardset}/>
     </>
   )
 }
