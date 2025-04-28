@@ -1,7 +1,23 @@
-export default function Layout({cardSet}){
+export default function Layout({cardSet = null, onClickFunction}){
+  
     return(
         <div>
-            hello{cardSet}
+            {
+               
+                cardSet.map((card)=>(
+                <div key ={card.id} onClick={()=>onClickFunction(card.name)}>
+                    {
+                        card.name
+                    }
+
+
+                </div>
+                ))
+                
+            }
         </div>
+           
     )
 }
+
+

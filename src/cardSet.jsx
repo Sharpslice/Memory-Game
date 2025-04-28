@@ -2,7 +2,7 @@ import { Cards } from "./cards"
 
 export class Cardset{
     constructor(cards){
-        this.cardSet = this.shuffle(cards.map(pokemon => new Cards(pokemon)))
+        this.cardSet = this.shuffle(cards.map(pokemon => new Cards(pokemon)));
     }
 
     shuffle(array){
@@ -13,6 +13,9 @@ export class Cardset{
             
         }
         return copy;
+    }
+    getCardSet(){
+        return this.cardSet
     }
     
 
