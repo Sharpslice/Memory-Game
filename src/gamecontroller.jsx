@@ -1,13 +1,16 @@
 import { Cardset } from "./cardSet";
-export class Gamecontroller {
-    constructor(pokemons){
-        this.cardSet = new Cardset(pokemons)
-        this.pickedCards = [];
-    }
-    getCardSet(){
-        return this.cardSet.getCardSet();
-    }
-    
+import { useState} from "react";
+import Layout from "./layout";
+export default function GameController({list}){
+    const [cardSet] = useState(new Cardset(list));
 
+    function handleClick(card){
+        console.log(card)
+    }
+    return(
+        <>
+            <Layout cardSet={cardSet.getCardSet()} onClickFunction={handleClick}></Layout>
+        </>
+    );
 
 }
