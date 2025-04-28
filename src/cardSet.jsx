@@ -2,9 +2,9 @@ import { Cards } from "./cards"
 
 export class Cardset{
     constructor(cards){
-        this.cardSet = this.shuffle(cards.map(pokemon => new Cards(pokemon)));
+        this.cardSet = this.shuffle(cards);
     }
-
+   
     shuffle(array){
         const copy = [...array];
         for(let i = copy.length -1; i> 0;i--){
