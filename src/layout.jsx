@@ -5,7 +5,7 @@ export default function Layout({cardSet = null, onClickFunction}){
             {
                
                 cardSet.map((card)=>(
-                <div key ={card.id} onClick={()=>onClickFunction()}>
+                <div key ={card.id} onClick={()=>onClickFunction(card)}>
                     {
                         card.name
                     }
