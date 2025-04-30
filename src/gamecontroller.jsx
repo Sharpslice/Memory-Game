@@ -25,7 +25,7 @@ export default function GameController({list}){
     }
     return(
         <>
-            <Layout cardSet={cardSet.getCardSet()} onClickFunction={handleClick}></Layout>
+            <Layout cardSet={cardSet.getCardSet()} onCardClick={handleClick}></Layout>
         </>
     );
 

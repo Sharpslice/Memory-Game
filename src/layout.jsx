@@ -1,17 +1,14 @@
-export default function Layout({cardSet = null, onClickFunction}){
-  
+import CardComponent from "./components/cardComponent"
+export default function Layout({cardSet = null, onCardClick}){
     return(
         <div>
             {
-               
                 cardSet.map((card)=>(
-                <div key ={card.id} onClick={()=>onClickFunction(card)}>
-                    {
-                        card.name
-                    }
-
-
-                </div>
+                    <CardComponent 
+                        key={card.id} 
+                        cardObj={card} 
+                        onCardClick={onCardClick}
+                    ></CardComponent>
                 ))
                 
             }
