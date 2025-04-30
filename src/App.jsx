@@ -6,7 +6,14 @@ import { useEffect,useState } from 'react'
 
 function App() {
   const [pokemonSet, setPokemonSet] = useState(null);
-  const pokemons = ['eevee','pikachu','typhlosion',"flygon","tandemaus","samurott","blaziken"];
+  const pokemons = ['eevee','pikachu',"flygon","tandemaus",
+                    "mudkip","blaziken","mew","dugtrio",
+                    "salamence", "rampardos","skarmory",
+                    "darkrai","registeel","swalot","zekrom",
+                    "gliscor","escavalier","luxray","dustox",
+                    "cobalion"
+
+                  ];
 
   useEffect(()=>{
     async function fetchData(){

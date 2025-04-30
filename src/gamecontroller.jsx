@@ -8,14 +8,24 @@ export default function GameController({list}){
     }
     const [cardSet,setCardSet] = useState(new Cardset(convertListToCards(list))); //cardSet is an object
 
-    function handleClick(){
-         setCardSet(new Cardset(cardSet.shuffle(cardSet.getCardSet())));
+    function handleClick(card){
+        if(card.picked)
+        {
+            console.log("gameOver");
+            setCardSet(new Cardset(convertListToCards(list)))
+        }
+        else{
+            card.picked = true;
+            //console.log( typeof card)
+            setCardSet(new Cardset(cardSet.shuffle(cardSet.getCardSet())));
+        }
         
-        console.log("reshuffle")
+        
+        
     }
     return(
         <>
-            <Layout cardSet={cardSet.getCardSet()} onClickFunction={handleClick}></Layout>
+            <Layout cardSet={cardSet.getCardSet()} onCardClick={handleClick}></Layout>
         </>
     );
 
