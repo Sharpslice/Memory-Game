@@ -1,3 +1,4 @@
+import "../css/card.css"
 export default function CardComponent({cardObj,onCardClick}){
    
     return(

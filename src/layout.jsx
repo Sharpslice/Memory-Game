@@ -1,7 +1,8 @@
 import CardComponent from "./components/cardComponent"
+import "./css/layout.css"
 export default function Layout({cardSet = null, onCardClick}){
     return(
-        <div>
+        <div id="cardSet">
             {
                 cardSet.map((card)=>(
                     <CardComponent 
