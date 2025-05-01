@@ -1,5 +1,35 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+#root{
+    width: 100vw;
+    height: 100vh;
+    background-color: #DB092c;
+}
+#main{
+    
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+   
+}
 #cardSet{
     display: grid;
-    grid-template-columns: repeat(5,150px);
-    gap: 5px;
+    grid-template-columns: repeat(5,100px);
+    gap: 10px;
+}
+#scoreBoard{
+    margin-top: 20px;
+   margin-bottom: 20px;
+   background-color: white;
+   border: 2px solid #e1e2e3;
+}
+#scoreBoard > span{
+    margin-right: 10px;
+    margin-left: 10px;
+    
 }
